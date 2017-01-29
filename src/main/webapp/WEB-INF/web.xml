@@ -10,8 +10,9 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RedisServlet</servlet-name>
-    <url-pattern>/redis</url-pattern>
+    <url-pattern>/first</url-pattern>
   </servlet-mapping>
+
   <!--<servlet>
     <servlet-name>RedisSet</servlet-name>
     <servlet-class>narendra.c.redisApi.servlet.RedisSet</servlet-class>
