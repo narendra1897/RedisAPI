@@ -5,12 +5,12 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-    <servlet-name>RedisServlet</servlet-name>
-    <servlet-class>servlet.RedisServlet</servlet-class>
+    <servlet-name>Set</servlet-name>
+    <servlet-class>servlet.Set</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>RedisServlet</servlet-name>
-    <url-pattern>/first</url-pattern>
+    <servlet-name>Set</servlet-name>
+    <url-pattern>/set</url-pattern>
   </servlet-mapping>
 
   <!--<servlet>
