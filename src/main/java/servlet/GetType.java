@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * Created by Shailendra on 2/1/2017.
+ * Created by Narendra on 2/1/2017.
  */
 public class GetType {
     static final ArrayList<String> list_check = new ArrayList<String>(Arrays.asList("lpush","lrange","lindex","llen","lpop"));

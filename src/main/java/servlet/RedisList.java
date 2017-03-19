@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Shailendra on 2/1/2017.
+ * Created by Narendra on 2/1/2017.
  */
 public class RedisList {
 
@@ -31,7 +31,7 @@ public class RedisList {
     }
 
     public String lindex(String[] input, Jedis jedis){
-        return jedis.lindex(input[2],Long.parseLong(input[3]));
+        return jedis.lindex(input[1],Long.parseLong(input[2]));
     }
 
     public Long llen(String input[],Jedis jedis){

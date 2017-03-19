@@ -13,12 +13,4 @@
     <url-pattern>/first</url-pattern>
   </servlet-mapping>
 
-  <!--<servlet>
-    <servlet-name>RedisSet</servlet-name>
-    <servlet-class>narendra.c.redisApi.servlet.RedisSet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RedisSet</servlet-name>
-    <url-pattern>/redisset</url-pattern>
-  </servlet-mapping>-->
 </web-app>

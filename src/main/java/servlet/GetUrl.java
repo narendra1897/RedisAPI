@@ -1,6 +1,8 @@
 package servlet;
 
+import org.json.simple.JSONArray;
 
+import org.json.simple.JSONObject;
 import redis.clients.jedis.Jedis;
 
 import javax.servlet.ServletException;
@@ -14,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class GetUrl extends HttpServlet {
+public class GetUrl extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
         response.setContentType("text.html");
         PrintWriter out = response.getWriter();
@@ -41,14 +43,26 @@ public class GetUrl extends HttpServlet {
             }
             //LRANGE
             else if(parameters[0].equals("lrange")){
+                response.setContentType("application/json");
+                PrintWriter jsonout = response.getWriter();
                 List<String> output = redislist.lrange(parameters,jedis);
+               // Iterator it = output.iterator();
+                JSONArray jsonarray = new JSONArray();
+                jsonarray.addAll(output);
+                out.print(jsonarray);
+
+                //the above one is to be tested for Json
+                //below code work fine for normal output case
+                /*List<String> output = redislist.lrange(parameters,jedis);
                 Iterator it = output.iterator();
                 while(it.hasNext()) {
                     out.print("<h1>" + it.next() + "</h1>");
-                }
+                }*/
             }
             //LINDEX
             else if(parameters[0].equals("lindex")){
+                //the above is to test the json
+                //the below work fine for normal situtaion
                 String s = redislist.lindex(parameters,jedis);
                 out.print("<h1>" + s + "</h1>");
             }
@@ -104,10 +118,18 @@ public class GetUrl extends HttpServlet {
             }
 
             if(parameters[0].equals("hgetAll")){
+                response.setContentType("application/json");
+                PrintWriter jsonout = response.getWriter();
+
                 Map<String,String> map = redishash.hgetall(parameters,jedis);
-                for(Map.Entry<String,String> entry : map.entrySet()){
+                JSONObject jsonobject = new JSONObject();
+                jsonobject.putAll(map);
+                jsonout.print(jsonobject);
+                //the above code is to test the Json for Object map
+                //the below work fine for normal case and to be deleted once the above work fine
+                /*for(Map.Entry<String,String> entry : map.entrySet()){
                     out.print("<h1>" + entry.getKey() + "   "+entry.getValue()+"</h1>");
-                }
+                }*/
             }
 
         }
